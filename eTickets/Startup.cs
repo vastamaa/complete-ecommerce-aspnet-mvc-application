@@ -51,6 +51,9 @@ namespace eTickets
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //Seeding
+            AppDbInitializer.Seed(app);
         }
     }
 }
