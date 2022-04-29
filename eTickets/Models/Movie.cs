@@ -1,6 +1,7 @@
 ﻿using eTickets.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eTickets.Models
@@ -8,9 +9,13 @@ namespace eTickets.Models
     public class Movie
     {
         public int Id { get; set; }
+        [Display(Name = "Name")]
         public string Name { get; set; }
+        [Display(Name = "Description")]
         public string Description { get; set; }
+        [Display(Name = "Price")]
         public double Price { get; set; }
+        [Display(Name = "Movie Poster")]
         public string ImageURL { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
