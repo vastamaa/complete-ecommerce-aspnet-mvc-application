@@ -9,7 +9,6 @@ F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\bin\Debug
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\bin\Debug\net5.0\eTickets.pdb
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\bin\Debug\net5.0\eTickets.Views.dll
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\bin\Debug\net5.0\eTickets.Views.pdb
-F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\eTickets.csproj.AssemblyReference.cache
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\eTickets.GeneratedMSBuildEditorConfig.editorconfig
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\eTickets.AssemblyInfoInputs.cache
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\eTickets.AssemblyInfo.cs
