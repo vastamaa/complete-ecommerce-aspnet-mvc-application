@@ -1,4 +1,6 @@
 using eTickets.Data;
+using eTickets.Data.Services.Implementations;
+using eTickets.Data.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +25,8 @@ namespace eTickets
             services.AddDbContext<AppDbContext>(opt => opt.UseMySQL(Configuration.GetConnectionString("Default")));
 
             services.AddControllersWithViews();
+
+            services.AddTransient<IActorsService, ActorsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
