@@ -1,8 +1,6 @@
-﻿using eTickets.Data;
-using eTickets.Data.Services.Interfaces;
+﻿using eTickets.Data.Services.Interfaces;
 using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace eTickets.Controllers
@@ -19,7 +17,7 @@ namespace eTickets.Controllers
         public IActionResult Create() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("FullName, ProfilePictureURL, Biography")]Actor actor)
+        public async Task<IActionResult> Create([Bind("FullName, ProfilePictureURL, Biography")] Actor actor)
         {
             if (!ModelState.IsValid) return View(actor);
 
