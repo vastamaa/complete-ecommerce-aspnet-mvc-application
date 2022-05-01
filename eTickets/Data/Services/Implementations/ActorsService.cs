@@ -12,27 +12,28 @@ namespace eTickets.Data.Services.Implementations
 
         public ActorsService(AppDbContext context) => _context = context;
 
-        public void AddActor(Actor actor)
+        public async Task AddActorAsync(Actor actor)
         {
-            _context.Actors.Add(actor);
-            _context.SaveChanges();
+            await _context.Actors.AddAsync(actor);
+            await _context.SaveChangesAsync();
         }
 
-        public void DeleteActor(int id)
+        public async Task DeleteActorAsync(int id)
         {
-            throw new System.NotImplementedException();
+            var result = await _context.Actors.FirstOrDefaultAsync(a => a.Id == id);
+            _context.Actors.Remove(result);
+            await _context.SaveChangesAsync();
         }
 
-        public Actor GetActoryById(int id)
-        {
-            throw new System.NotImplementedException();
-        }
+        public async Task<Actor> GetActoryByIdAsync(int id) => await _context.Actors.FirstOrDefaultAsync(a => a.Id == id);
 
         public async Task<IEnumerable<Actor>> GetAllActorsAsync() => await _context.Actors.ToListAsync();
 
-        public Actor UpdateActor(int id, Actor actor)
+        public async Task<Actor> UpdateActorAsync(int id, Actor actor)
         {
-            throw new System.NotImplementedException();
+            _context.Update(actor);
+            await _context.SaveChangesAsync();
+            return actor;
         }
     }
 }

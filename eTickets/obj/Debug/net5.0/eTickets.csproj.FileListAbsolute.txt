@@ -59,3 +59,6 @@ F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Cinemas\Index.cshtml.g.cs
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Movies\Index.cshtml.g.cs
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Actors\Create.cshtml.g.cs
+F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Actors\Details.cshtml.g.cs
+F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Actors\Edit.cshtml.g.cs
+F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Actors\Delete.cshtml.g.cs
