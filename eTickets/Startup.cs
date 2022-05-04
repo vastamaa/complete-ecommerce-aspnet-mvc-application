@@ -27,6 +27,7 @@ namespace eTickets
             services.AddControllersWithViews();
 
             services.AddTransient<IActorsService, ActorsService>();
+            services.AddTransient<IProducersService, ProducersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

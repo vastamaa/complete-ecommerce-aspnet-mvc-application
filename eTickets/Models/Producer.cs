@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using eTickets.Data.Base;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace eTickets.Models
 {
-    public class Producer
+    public class Producer : IEntityBase
     {
         public int Id { get; set; }
         [Display(Name = "Profile picture")]
