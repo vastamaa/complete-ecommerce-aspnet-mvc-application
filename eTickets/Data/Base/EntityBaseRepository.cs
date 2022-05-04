@@ -11,24 +11,31 @@ namespace eTickets.Data.Base
 
         public EntityBaseRepository(AppDbContext context) => _context = context;
 
-        public async Task AddAsync(T entity) => await _context.Set<T>().AddAsync(entity);
+        public async Task AddAsync(T entity)
+        {
+            await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+        } 
 
         public async Task DeleteAsync(int id)
         {
             var entity = await _context.Set<T>().FirstOrDefaultAsync(a => a.Id == id);
             EntityEntry entityEntry = _context.Entry<T>(entity);
             entityEntry.State = EntityState.Deleted;
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<T> GetByIdAsync(int id) => await _context.Set<T>().FirstOrDefaultAsync(a => a.Id == id);
 
         public async Task<IEnumerable<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
 
-        public Task<T> UpdateAsync(int id, T entity)
+        public async Task UpdateAsync(int id, T entity)
         {
             EntityEntry entityEntry = _context.Entry<T>(entity);
             entityEntry.State = EntityState.Modified;
-            return entityEntry;
+
+            await _context.SaveChangesAsync();
         }
     }
 }
