@@ -1,7 +1,5 @@
-﻿using eTickets.Data;
-using eTickets.Data.Services.Interfaces;
+﻿using eTickets.Data.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace eTickets.Controllers
@@ -16,5 +14,14 @@ namespace eTickets.Controllers
         }
 
         public async Task<IActionResult> Index() => View(await _producersService.GetAllAsync());
+
+        //GET: producers/detail/1
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var producerDetails = await _producersService.GetByIdAsync(id);
+            if (producerDetails is null) return View("NotFound");
+            return View(producerDetails);
+        }
     }
 }

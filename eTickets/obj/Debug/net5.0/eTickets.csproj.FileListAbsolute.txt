@@ -63,3 +63,4 @@ F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Actors\Edit.cshtml.g.cs
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Actors\Delete.cshtml.g.cs
 F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Shared\NotFound.cshtml.g.cs
+F:\Documents\GitHub\complete-ecommerce-aspnet-mvc-application\eTickets\obj\Debug\net5.0\Razor\Views\Producers\Details.cshtml.g.cs
