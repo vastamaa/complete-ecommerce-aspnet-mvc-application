@@ -1,4 +1,5 @@
 ﻿using eTickets.Data.Services.Interfaces;
+using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -22,6 +23,18 @@ namespace eTickets.Controllers
             var producerDetails = await _producersService.GetByIdAsync(id);
             if (producerDetails is null) return View("NotFound");
             return View(producerDetails);
+        }
+
+        //GET: producers/create
+        public IActionResult Create() => View();
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("ProfilePictureURL, FullName, Biography")] Producer producer)
+        {
+            if (!ModelState.IsValid) return View(producer);
+
+            await _producersService.AddAsync(producer);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
