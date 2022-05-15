@@ -65,7 +65,7 @@ namespace eTickets.Controllers
         {
             var producerDetails = await _producersService.GetByIdAsync(id);
 
-            if (producerDetails is null) return View("Not found!");
+            if (producerDetails is null) return View("NotFound!");
 
             return View(producerDetails);
         }
@@ -74,7 +74,7 @@ namespace eTickets.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var actorDetails = await _producersService.GetByIdAsync(id);
-            if (!ModelState.IsValid) return View("Not found!");
+            if (!ModelState.IsValid) return View("NotFound!");
 
             await _producersService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));

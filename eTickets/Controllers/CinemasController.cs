@@ -33,12 +33,12 @@ namespace eTickets.Controllers
             return View(cinemaDetails);
         }
 
-        //UPDATE: cinemas/Edit/1
+        //GET: cinemas/Edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var cinemaDetails = await _cinemasService.GetByIdAsync(id);
 
-            if (cinemaDetails is null) return View("Not found!");
+            if (cinemaDetails is null) return View("NotFound!");
 
             return View(cinemaDetails);
         }
@@ -49,6 +49,26 @@ namespace eTickets.Controllers
             if (!ModelState.IsValid) return View(cinema);
 
             await _cinemasService.UpdateAsync(id, cinema);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //DELETE: Actors/Delete/1
+        public async Task<IActionResult> Delete(int id)
+        {
+            var cinemaDetails = await _cinemasService.GetByIdAsync(id);
+
+            if (cinemaDetails is null) return View("NotFound!");
+
+            return View(cinemaDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var actorDetails = await _cinemasService.GetByIdAsync(id);
+            if (!ModelState.IsValid) return View("NotFound!");
+
+            await _cinemasService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }
