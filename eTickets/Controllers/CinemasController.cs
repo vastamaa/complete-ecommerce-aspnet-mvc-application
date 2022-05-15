@@ -1,16 +1,15 @@
-﻿using eTickets.Data;
+﻿using eTickets.Data.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace eTickets.Controllers
 {
     public class CinemasController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly ICinemasService _cinemasService;
 
-        public CinemasController(AppDbContext context) => _context = context;
+        public CinemasController(ICinemasService cinemasService) => _cinemasService = cinemasService;
 
-        public async Task<IActionResult> Index() => View(await _context.Cinemas.ToListAsync());
+        public async Task<IActionResult> Index() => View(await _cinemasService.GetAllAsync());
     }
 }
