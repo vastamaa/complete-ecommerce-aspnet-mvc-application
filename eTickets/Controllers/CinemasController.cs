@@ -23,5 +23,14 @@ namespace eTickets.Controllers
             await _cinemasService.AddAsync(cinema);
             return RedirectToAction(nameof(Index));
         }
+
+        //GET: cinemas/details/1
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var cinemaDetails = await _cinemasService.GetByIdAsync(id);
+            if (cinemaDetails == null) return View("NotFound");
+            return View(cinemaDetails);
+        }
     }
 }
