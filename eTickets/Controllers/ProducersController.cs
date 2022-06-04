@@ -7,20 +7,17 @@ namespace eTickets.Controllers
 {
     public class ProducersController : Controller
     {
-        private readonly IProducersService _producersService;
+        private readonly IProducersService _service;
 
-        public ProducersController(IProducersService producersService)
-        {
-            _producersService = producersService;
-        }
+        public ProducersController(IProducersService service) => _service = service;
 
-        public async Task<IActionResult> Index() => View(await _producersService.GetAllAsync());
+        public async Task<IActionResult> Index() => View(await _service.GetAllAsync());
 
         //GET: producers/detail/1
 
         public async Task<IActionResult> Details(int id)
         {
-            var producerDetails = await _producersService.GetByIdAsync(id);
+            var producerDetails = await _service.GetByIdAsync(id);
             if (producerDetails is null) return View("NotFound");
             return View(producerDetails);
         }
@@ -33,14 +30,14 @@ namespace eTickets.Controllers
         {
             if (!ModelState.IsValid) return View(producer);
 
-            await _producersService.AddAsync(producer);
+            await _service.AddAsync(producer);
             return RedirectToAction(nameof(Index));
         }
 
         //GET: producers/edit/1
         public async Task<IActionResult> Edit(int id)
         {
-            var producerDetails = await _producersService.GetByIdAsync(id);
+            var producerDetails = await _service.GetByIdAsync(id);
 
             if (producerDetails is null) return View("NotFound");
 
@@ -54,7 +51,7 @@ namespace eTickets.Controllers
 
             if (id == producer.Id)
             {
-                await _producersService.UpdateAsync(id, producer);
+                await _service.UpdateAsync(id, producer);
                 return RedirectToAction(nameof(Index));
             }
             return View(producer);
@@ -63,7 +60,7 @@ namespace eTickets.Controllers
         //DELETE: producers/delete/1
         public async Task<IActionResult> Delete(int id)
         {
-            var producerDetails = await _producersService.GetByIdAsync(id);
+            var producerDetails = await _service.GetByIdAsync(id);
 
             if (producerDetails is null) return View("NotFound!");
 
@@ -73,10 +70,10 @@ namespace eTickets.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var actorDetails = await _producersService.GetByIdAsync(id);
+            var actorDetails = await _service.GetByIdAsync(id);
             if (!ModelState.IsValid) return View("NotFound!");
 
-            await _producersService.DeleteAsync(id);
+            await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }

@@ -1,4 +1,5 @@
 using eTickets.Data;
+using eTickets.Data.Services;
 using eTickets.Data.Services.Implementations;
 using eTickets.Data.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +30,7 @@ namespace eTickets
             services.AddTransient<IActorsService, ActorsService>();
             services.AddTransient<IProducersService, ProducersService>();
             services.AddTransient<ICinemasService, CinemasService>();
+            services.AddTransient<IMoviesService, MoviesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
